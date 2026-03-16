@@ -1,3 +1,5 @@
+import numpy as np
+
 def numIntegration(a, b, n):
     if n <= 0:
         print("The number of subdivisions 'n' must be a positive integer.")
@@ -26,7 +28,7 @@ def IntegrNC(xi, xf, ps=1):
             return
 
 def func(x):
-    return x**9
+    return x ** 5 * np.cos(x)
 
 if __name__ == "__main__":
     a = float(input("Choose the 'a' value: "))
