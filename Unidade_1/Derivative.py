@@ -19,9 +19,9 @@ def forward_derivative(x, delta_x):
         case 1:
             return (func(x + delta_x) - func(x)) / delta_x
         case 2:
-            return (func(x + (2 * delta_x)) - 2 * func(x + delta_x) + func(x)) / delta_x ** 2
+            return (func(x + (2 * delta_x)) - 2 * func(x + delta_x) + func(x)) / (delta_x ** 2)
         case 3:
-            return (func(x + (3 * delta_x)) - 3 * func(x + (2 * delta_x)) + 3 * func(x + delta_x) - func(x)) / delta_x ** 3        
+            return (func(x + (3 * delta_x)) - 3 * func(x + (2 * delta_x)) + 3 * func(x + delta_x) - func(x)) / (delta_x ** 3)      
         case 4:
             # TODO: MONTAR E APLICAR AQUI
             return
@@ -32,9 +32,9 @@ def backward_derivative(x, delta_x):
         case 1:
             return (func(x) - func(x + delta_x)) / delta_x
         case 2:
-            # TODO: APLICAR 
+            return (func(x) - (2 * func(x - delta_x)) + func(x - (2 * delta_x))) / (delta_x ** 2)
         case 3:
-            # TODO: APLICAR
+            return (func(x) - (3 * func(x - delta_x)) + (3 * func(x - (2 * delta_x))) - func(x - (3 * delta_x))) / (delta_x ** 3)
         case 4:
             # TODO: montar e aplicar aqui
             return
