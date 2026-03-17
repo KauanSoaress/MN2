@@ -19,12 +19,14 @@ def forward_derivative(x, delta_x):
         case 1:
             return (func(x + delta_x) - func(x)) / delta_x
         case 2:
-            return (func(x + (2 * delta_x)) - 2 * func(x + delta_x) + func(x)) / (delta_x ** 2)
+            return (func(x + (2 * delta_x)) - (2 * func(x + delta_x)) + func(x)) / (delta_x ** 2)
         case 3:
-            return (func(x + (3 * delta_x)) - 3 * func(x + (2 * delta_x)) + 3 * func(x + delta_x) - func(x)) / (delta_x ** 3)      
+            return (func(x + (3 * delta_x)) - (3 * func(x + (2 * delta_x))) + (3 * func(x + delta_x)) - func(x)) / (delta_x ** 3)      
         case 4:
             # TODO: MONTAR E APLICAR AQUI
             return
+        case _:
+            return "Invalid derivative order!"
 
 def backward_derivative(x, delta_x):
     derivative_order = int(input("Choose the 'derivative_order' value (1 - First | 2 - Second | 3 - Third | 4 - Fourth): "))
@@ -38,10 +40,23 @@ def backward_derivative(x, delta_x):
         case 4:
             # TODO: montar e aplicar aqui
             return
+        case _:
+            return "Invalid derivative order!"
 
 def central_derivative(x, delta_x):
-    # Implementation for central difference
-    pass
+    derivative_order = int(input("Choose the 'derivative_order' value (1 - First | 2 - Second | 3 - Third | 4 - Fourth): "))
+    match derivative_order:
+        case 1:
+            return (func(x + delta_x) - func(x - delta_x)) / (delta_x)
+        case 2:
+            return (func(x + delta_x) - (2 * func(x)) + func(x - delta_x)) / (delta_x ** 2)
+        case 3:
+            return (func(x + (2 * delta_x)) - (2 * func(x + delta_x)) + (2 * func(x - delta_x)) - func(x - (2 * delta_x))) / (delta_x ** 3)
+        case 4:
+            # TODO: montar e aplicar aqui
+            return
+        case _:
+            return "Invalid derivative order!"
 
 def func(x):
     return x ** 5 * np.cos(x)
