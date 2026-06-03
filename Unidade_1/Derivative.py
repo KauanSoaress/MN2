@@ -24,7 +24,6 @@ def forward_derivative(x, delta_x):
             return (func(x + (3 * delta_x)) - (3 * func(x + (2 * delta_x))) + (3 * func(x + delta_x)) - func(x)) / (delta_x ** 3)      
         case 4:
             return (func(x + (4 * delta_x)) - (4 * func(x + (3 * delta_x))) + (6 * func(x + (2 * delta_x))) - (4 * func(x + delta_x)) + func(x)) / (delta_x ** 4)
-            return
         case _:
             return "Invalid derivative order!"
 
@@ -52,8 +51,7 @@ def central_derivative(x, delta_x):
         case 3:
             return (func(x + (2 * delta_x)) - (2 * func(x + delta_x)) + (2 * func(x - delta_x)) - func(x - (2 * delta_x))) / (delta_x ** 3)
         case 4:
-            # TODO: montar e aplicar aqui
-            return
+            return (func(x + (2 * delta_x)) - (4 * func(x + delta_x)) + (6 * func(x)) - (4 * func(x - delta_x)) + func(x - (2 * delta_x))) / (delta_x ** 4)
         case _:
             return "Invalid derivative order!"
 
